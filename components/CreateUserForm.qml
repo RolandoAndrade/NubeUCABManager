@@ -3,6 +3,7 @@ import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
+import com.nubeucab.usermanager 1.0
 
 Rectangle
 {
@@ -88,6 +89,7 @@ Rectangle
 
                 TextField
                 {
+                    id: usernameField
 
                     color: Material.color(Material.Grey, Material.Shade600)
                     anchors.top: parent.top
@@ -130,6 +132,7 @@ Rectangle
 
                 TextField
                 {
+                    id: passwordField
                     color: Material.color(Material.Grey, Material.Shade600)
                     anchors.top: parent.top
                     anchors.topMargin: 7
@@ -189,7 +192,8 @@ Rectangle
 
             function select()
             {
-
+                userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
+                userManager.reset();
             }
 
             MouseArea
@@ -207,6 +211,25 @@ Rectangle
     FileBrowser
     {
         id: fileBrowser
+    }
+
+    UserManager
+    {
+        id: userManager
+        Component.onCompleted:
+        {
+            reset();
+        }
+
+        function reset()
+        {
+            var users = userManager.readUsers();
+            listModel.clear();
+            for(var i = 0; i<users.length;i++)
+            {
+                listModel.append(users[i]);
+            }
+        }
     }
 
 

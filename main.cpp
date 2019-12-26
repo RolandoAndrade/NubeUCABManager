@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
+#include "server/usermanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +11,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     QQuickStyle::setStyle("Material");
+    qmlRegisterType<UserManager>("com.nubeucab.usermanager",1,0,"UserManager");
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 

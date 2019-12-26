@@ -1,14 +1,17 @@
+#ifndef USER_MANAGER_H
+#define USER_MANAGER_H
+
 #include <string>
 #include <map>
 #include <iostream>
 #include <fstream>
-#include <iostream>
+
 using namespace std;
 
 typedef map<string, pair<string, string>> LoginInfo;
 
 
-int write(string name, string password, string home)
+int addUserToFile(string name, string password, string home)
 {
 	ofstream myfile;
 	myfile.open ("users/users.info", ios::out | ios::app | ios::binary); 
@@ -17,9 +20,9 @@ int write(string name, string password, string home)
 	return 0;
 }
 
-LoginInfo formLoginInfoList()
+LoginInfo getUsersFromFile()
 {
-	LoginInfo list;
+    LoginInfo list;
 	ifstream in("users/users.info", ios::in| ios::binary);
 
 	if(in)
@@ -27,29 +30,29 @@ LoginInfo formLoginInfoList()
 		string user, pass, home;
 		while (in >> user >> pass >> home)
 		{
-		    list[user] = make_pair(pass,home);
+            list[user] = make_pair(pass,home);
 		}
 	}
 	
 	return list;
 }
 
-int rewrite(LoginInfo data)
+int updateUsersOfFile(LoginInfo data)
 {
 	ofstream myfile;
 	myfile.open ("users/users.info", ios::out | ios::binary); 
 	for(auto d: data)
-		myfile << d.first << " " << d.second.first << " " << d.second.second << "\n";
+        myfile << d.first << " " << d.second.first << " " << d.second.second << "\n";
 	myfile.close();
 	return 0;
 }
 
-int removeUser(string user)
+int removeUsersFromFile(string user)
 {
 
-	LoginInfo f = formLoginInfoList();
-		cout<<f.size()<<endl;
-	f.erase(user);
-		cout<<f.size()<<endl;
-	return rewrite(f);
+    LoginInfo f = getUsersFromFile();
+    f.erase(user);
+    return updateUsersOfFile(f);
 }
+
+#endif// USER_MANAGER_H

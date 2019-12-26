@@ -2,6 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.4
 import QtQuick.Controls.Material 2.2
 import QtQuick.Layouts 1.3
+import com.nubeucab.usermanager 1.0
 
 Rectangle
 {
@@ -96,6 +97,7 @@ Rectangle
 
                 Text
                 {
+                    id: usernameCard
                     text: userCard.name
                     color: Material.color(Material.Grey, Material.Shade600)
                 }
@@ -152,7 +154,8 @@ Rectangle
 
         function select()
         {
-
+            userManager.removeUser(usernameCard.text);
+            userManager.reset();
         }
 
         MouseArea
@@ -164,4 +167,19 @@ Rectangle
             onClicked: parent.select()
         }
     }
+
+    UserManager
+    {
+        id: userManager
+        function reset()
+        {
+            var users = userManager.readUsers();
+            listModel.clear();
+            for(var i = 0; i<users.length;i++)
+            {
+                listModel.append(users[i]);
+            }
+        }
+    }
+
 }
