@@ -196,7 +196,6 @@ Rectangle
                 userManager.reset();
                 usernameField.text = "";
                 passwordField.text = "";
-                //popupadd.open();
             }
 
             MouseArea
@@ -234,9 +233,6 @@ Rectangle
             }
         }
     }
-
-
-
 
 
 
