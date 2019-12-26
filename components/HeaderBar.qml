@@ -47,7 +47,7 @@ Rectangle
             selectByMouse: true
             selectionColor: Material.color(Material.Blue, Material.Shade300)
             width: 60
-
+            validator: IntValidator {bottom: 2048; top: 65536}
             font.pointSize: 10
             text: "3000"
             horizontalAlignment: Text.AlignHCenter
@@ -112,7 +112,7 @@ Rectangle
 
                 function select()
                 {
-
+                    serverManager.startServer(parseInt(hostArea.text));
                 }
 
                 MouseArea
@@ -183,4 +183,9 @@ Rectangle
             }
         }
 
-    }
+        ServerManager
+        {
+            id: serverManager
+        }
+
+}
