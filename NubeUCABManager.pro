@@ -34,3 +34,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     fonts/fontawesome-webfont.ttf \
     img/ucab.png
+
+HEADERS += \
+    server/users_manager.h \
+    server/usermanager.h
