@@ -28,6 +28,15 @@ Rectangle
             source: sidebar
         }
 
+        Image
+        {
+            x: 50
+            width: 80
+            height: 80
+            anchors.verticalCenter: parent.verticalCenter
+            source: "qrc:///img/ucab.png"
+        }
+
         TextField
         {
             id: hostArea
@@ -42,7 +51,7 @@ Rectangle
             horizontalAlignment: Text.AlignHCenter
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: 50
             Rectangle
             {
                 anchors.fill: parent

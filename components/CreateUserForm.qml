@@ -14,7 +14,6 @@ Rectangle
     Layout.topMargin: 25
     border.color: "#eee"
 
-
     ColumnLayout
     {
         anchors.left: parent.left

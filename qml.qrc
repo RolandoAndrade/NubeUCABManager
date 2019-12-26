@@ -4,6 +4,7 @@
         <file>components/Header.qml</file>
         <file>components/HeaderBar.qml</file>
         <file>components/CreateUserForm.qml</file>
+        <file>components/UserCard.qml</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="font.ttf">fonts/fontawesome-webfont.ttf</file>

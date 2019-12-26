@@ -41,28 +41,46 @@ ApplicationWindow
 
     }
 
+    Component.onCompleted:
+    {
+        for(var i = 0;i<5;i++)
+            listModel.append({thename: "rolando",thepass:"abcdef",theroute: "/home/rolandoandrade",type:"data"})
+    }
 
-    ScrollView{
-        width: mainWindow.width
-        height: mainWindow.height - 125
+    ListView
+    {
+        id: listData
+        highlightRangeMode: ListView.NoHighlightRange
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
         anchors.top: parent.top
-        anchors.topMargin: 125
-        clip: true
-        ColumnLayout
+        spacing: 25
+        header: Rectangle
         {
-            width: mainWindow.width
-            Layout.fillWidth: true
-
+            anchors.horizontalCenter: parent.horizontalCenter
+            width: generalData.width
+            height: 350
+            color: "transparent"
             UIObjects.CreateUserForm
             {
-
+                anchors.verticalCenter: parent.verticalCenter
+                id: generalData
             }
+        }
 
-            ListView
-            {
+        anchors.topMargin: 126
+        clip: true
 
-            }
+        model: ListModel{
+            id: listModel
+        }
+        delegate: UIObjects.UserCard
+        {
+            name: thename
+            password: thepass
+            route: theroute
+            anchors.horizontalCenter: parent.horizontalCenter
         }
     }
 
