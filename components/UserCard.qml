@@ -33,11 +33,11 @@ Rectangle
                 case "blue":
                     return Material.color(Material.Blue)
                 case "green":
-                    return Material.color(Material.Green)
+                    return Material.color(Material.Green, Material.Shade600)
                 case "red":
                     return Material.color(Material.Red)
                 case "yellow":
-                    return Material.color(Material.Yellow)
+                    return Material.color(Material.Yellow, Material.Shade600)
             }
         }
         radius: 10

@@ -40,6 +40,7 @@ Rectangle
 
             Text
             {
+                id: directoryRoute
                 text: "/home/rolandoandrade/NubeUCAB"
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -63,6 +64,12 @@ Rectangle
                     color: Material.color(Material.Grey, Material.Shade400)
                     font.pointSize: 8
                 }
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+                onClicked: fileBrowser.open()
             }
         }
         GridLayout
@@ -194,6 +201,12 @@ Rectangle
                 onClicked: parent.select()
             }
         }
+    }
+
+
+    FileBrowser
+    {
+        id: fileBrowser
     }
 
 
