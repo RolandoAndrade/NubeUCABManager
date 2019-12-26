@@ -16,7 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    server/users_manager.cpp
+    server/users_manager.cpp \
+    server/NubeUCAB-servidor/commands.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
