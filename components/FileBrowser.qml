@@ -11,14 +11,11 @@ FileDialog {
 
     onAccepted:
     {
-        console.log("You chose: " + fileDialog.fileUrls[0])
-        directoryRoute.text = fileDialog.fileUrls[0].substr(7)
-        //Qt.quit()
+        directoryRoute.text = fileDialog.fileUrls[0].substr(7);
     }
     onRejected:
     {
-        console.log("Canceled")
-        //Qt.quit()
+
     }
     Component.onCompleted: visible = false
 }
