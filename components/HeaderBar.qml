@@ -123,6 +123,31 @@ Rectangle
                 }
             }
 
+            ColumnLayout
+            {
+                width: 50
+                spacing: 10
+                Rectangle
+                {
+
+                    width: 20
+                    height: 20
+                    radius: 20
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                    color: Material.color(Material.Red)
+                }
+                Text
+                {
+                    text: "APAGADO"
+                    font.pointSize: 8
+                    verticalAlignment: Text.AlignVCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                    color: "white"
+                }
+            }
+
+
             Rectangle
             {
                 property string icon: "\uf04d"
