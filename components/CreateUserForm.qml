@@ -9,7 +9,7 @@ Rectangle
     id: generalData
     height: 300
     Layout.alignment: Qt.AlignHCenter
-    radius: 5
+    radius: 10
     width: Math.min(mainWindow.width - 200,800)
     Layout.topMargin: 25
     border.color: "#eee"

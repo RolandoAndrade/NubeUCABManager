@@ -43,8 +43,11 @@ ApplicationWindow
 
     Component.onCompleted:
     {
-        for(var i = 0;i<5;i++)
-            listModel.append({thename: "rolando",thepass:"abcdef",theroute: "/home/rolandoandrade",type:"data"})
+        var items = [{thename: "rolando",thepass:"abcdef",theroute: "/home/rolandoandrade", thecolor: "blue"},
+                {thename: "juan",thepass:"holaq",theroute: "/home/rolandoandrade/NubeUCAB/juan", thecolor: "green"},
+                {thename: "pablopedro",thepass:"12asdsa",theroute: "/home/rolandoandrade/NubeUCAB/pablopedro", thecolor:"yellow"}]
+        for(var i = 0;i<items.length;i++)
+            listModel.append(items[i])
     }
 
     ListView
@@ -80,7 +83,15 @@ ApplicationWindow
             name: thename
             password: thepass
             route: theroute
+            labelColor: thecolor
             anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        footer: Rectangle
+        {
+            height: 25
+            Layout.fillWidth: true
+            color: "transparent"
         }
     }
 
