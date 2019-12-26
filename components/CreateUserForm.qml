@@ -192,11 +192,23 @@ Rectangle
 
             function select()
             {
-                userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
-                userManager.reset();
-                usernameField.text = "";
-                passwordField.text = "";
-                //popupadd.open();
+
+                if(usernameField.text.length==0||passwordField.text.length==0)
+                {
+                    popupadd.openModal("\uf00d","Error","Hay campos vacíos",Material.color(Material.Red));
+
+                }
+                else
+                {
+                    userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
+                    popupadd.openModal("\uf00c","Éxito","Se ha creado un usuario de manera exitosa",Material.color(Material.Green));
+                    userManager.reset();
+                    usernameField.text = "";
+                    passwordField.text = "";
+                }
+
+
+
             }
 
             MouseArea

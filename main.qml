@@ -90,67 +90,11 @@ ApplicationWindow
         }
     }
 
-    Popup
+    UIObjects.PopupModal
     {
-        id: popupadd
-        width: 300
-        height: 300
-        modal: true
-        focus: true
-        x: mainWindow.width/2 - 150
-        y: mainWindow.height/2 - 150
-        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-
-        ColumnLayout
-        {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
-            spacing: 10
-
-            Text
-            {
-                text: "\uf00c"
-                color: Material.color(Material.Green)
-                Layout.alignment: Qt.AlignHCenter
-                opacity: 0.8
-                font.pointSize: 50
-            }
-
-            Text
-            {
-                text: "Éxito";
-                Layout.alignment: Qt.AlignHCenter
-                font.pointSize: 20
-                color: Material.color(Material.Grey)
-
-            }
-
-
-            Text
-            {
-                text: "Se ha creado un usuario de manera exitosa";
-                horizontalAlignment: Text.AlignHCenter
-                wrapMode: Text.WrapAnywhere
-                Layout.alignment: Qt.AlignHCenter
-                font.pointSize: 10
-                color: Material.color(Material.Grey)
-                width: 100
-            }
-
-            Button
-            {
-                text: "Ok"
-                flat: true
-                Material.background: Material.color(Material.Blue)
-                Layout.alignment: Qt.AlignHCenter
-                Material.foreground: "#fff"
-                padding: 20
-                onPressed: popupadd.close()
-                font.pointSize: 10
-            }
-        }
-
-
+        id:popupadd
     }
+
+
 
 }
