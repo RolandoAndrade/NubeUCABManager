@@ -36,5 +36,5 @@ DISTFILES += \
     img/ucab.png
 
 HEADERS += \
-    server/users_manager.h \
-    server/usermanager.h
+    server/usermanager.h \
+    server/user_manager.h
