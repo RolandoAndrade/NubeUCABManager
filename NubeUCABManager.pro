@@ -38,4 +38,12 @@ DISTFILES += \
 
 HEADERS += \
     server/users_manager.h \
-    server/usermanager.h
+    server/usermanager.h \
+    server/servermanager.h \
+    server/NubeUCAB-servidor/FTPServer.h \
+    server/NubeUCAB-servidor/commands.h \
+    server/NubeUCAB-servidor/socket.h \
+    server/NubeUCAB-servidor/socket_server.h \
+    server/NubeUCAB-servidor/FTPRequest.h \
+    server/NubeUCAB-servidor/socket_exceptions.h \
+    server/NubeUCAB-servidor/FTPResponse.h
