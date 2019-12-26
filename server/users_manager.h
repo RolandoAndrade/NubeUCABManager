@@ -5,16 +5,22 @@
 #include <map>
 #include <iostream>
 #include <fstream>
+#include <sys/stat.h>
 
 using namespace std;
 
 typedef map<string, pair<string, string>> LoginInfo;
 
+int createDirectory(string directory)
+{
+    return !mkdir(directory.c_str(), S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
+}
 
 int addUserToFile(string name, string password, string home)
 {
 	ofstream myfile;
-	myfile.open ("users/users.info", ios::out | ios::app | ios::binary); 
+    myfile.open ("users/users.info", ios::out | ios::app | ios::binary);
+    createDirectory(home);
 	myfile << name << " " << password << " " << home << "\n";
 	myfile.close();
 	return 0;
@@ -54,5 +60,7 @@ int removeUsersFromFile(string user)
     f.erase(user);
     return updateUsersOfFile(f);
 }
+
+
 
 #endif// USER_MANAGER_H

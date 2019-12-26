@@ -194,6 +194,8 @@ Rectangle
             {
                 userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
                 userManager.reset();
+                usernameField.text = "";
+                passwordField.text = "";
             }
 
             MouseArea
