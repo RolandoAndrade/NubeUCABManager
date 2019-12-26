@@ -14,6 +14,11 @@ class UserManager: public QObject
         QQmlApplicationEngine engine;
     public:
         explicit UserManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
+
+        UserManager()
+        {
+
+        }
     public slots:
 
         bool addUser(QString user, QString password, QString home)
