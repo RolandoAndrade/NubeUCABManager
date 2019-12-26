@@ -6,6 +6,7 @@
         <file>components/CreateUserForm.qml</file>
         <file>components/UserCard.qml</file>
         <file>components/FileBrowser.qml</file>
+        <file>components/PopupModal.qml</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="font.ttf">fonts/fontawesome-webfont.ttf</file>
