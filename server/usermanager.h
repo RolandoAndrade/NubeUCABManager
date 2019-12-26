@@ -14,8 +14,13 @@ class UserManager: public QObject
         QQmlApplicationEngine engine;
     public:
         explicit UserManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
-    public slots:
 
+        UserManager()
+        {
+
+        }
+
+    public slots:
         bool addUser(QString user, QString password, QString home)
         {
             return addUserToFile(user.toStdString(), password.toStdString(), home.toStdString()+"/"+user.toStdString());
@@ -28,7 +33,7 @@ class UserManager: public QObject
 
         QVariantList readUsers()
         {
-            createDirectory("users");
+
             vector<string> v({"blue","green","red","yellow"});
             int i = 0;
             LoginInfo l = getUsersFromFile();
