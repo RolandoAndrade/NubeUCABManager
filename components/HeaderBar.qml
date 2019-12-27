@@ -16,18 +16,18 @@ Rectangle
         anchors.leftMargin: 0
         anchors.right: parent.right
         anchors.rightMargin: 0
+        z:20
 
         layer.enabled: true
         layer.effect: DropShadow
         {
 
-            anchors.fill: header
+            anchors.fill: sidebar
             horizontalOffset: 0
             verticalOffset: 1
             radius: 10.0
             samples: 15
             color: "#80000000"
-            source: sidebar
         }
 
         Image
@@ -139,12 +139,19 @@ Rectangle
                     spacing: 10
                     Rectangle
                     {
-
+                        id: statusViewer
                         width: 20
                         height: 20
                         radius: 20
                         Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                         color: serverManager.isStarted?Material.color(Material.Blue, Material.Shade200):Material.color(Material.Red)
+                    }
+                    SequentialAnimation
+                    {
+                        loops: Animation.Infinite
+                        running: serverManager.isStarted
+                        NumberAnimation { target: statusViewer; property: "scale"; from: 1; to: 0.7; duration: 1000 }
+                        NumberAnimation { target: statusViewer; property: "scale"; to: 1; duration: 1000 }
                     }
                     Text
                     {

@@ -67,7 +67,7 @@ ApplicationWindow
             }
         }
 
-        anchors.topMargin: 126
+        anchors.topMargin: 125
         clip: true
 
         model: ListModel{

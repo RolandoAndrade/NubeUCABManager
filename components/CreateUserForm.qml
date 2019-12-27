@@ -26,7 +26,7 @@ Rectangle
         spacing: 30
         Text
         {
-            text: "Administrar servidor"
+            text: "Crear usuario"
             color: Material.color(Material.Grey)
             font.pointSize: 15
         }
