@@ -13,10 +13,15 @@ class ServerManager: public QObject
     private:
         QQmlApplicationEngine engine;
         std::thread tServer;
+
     public:
         explicit ServerManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
 
         ServerManager()
+        {
+
+        }
+        ~ServerManager()
         {
 
         }
@@ -26,13 +31,13 @@ class ServerManager: public QObject
         {
             FTPServer server(port);
             tServer = std::thread(&FTPServer::start,server);
-            //t1.join();
 
         }
 
         void stopServer()
         {
-
+            tServer.detach();
+            tServer.~thread();
         }
 
 };

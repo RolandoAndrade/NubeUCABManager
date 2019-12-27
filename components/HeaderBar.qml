@@ -182,6 +182,7 @@ Rectangle
                 function select()
                 {
                     serverManager.isStarted = false;
+                    serverManager.stopServer();
                 }
 
                 MouseArea
