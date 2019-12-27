@@ -95,6 +95,7 @@ Rectangle
             Rectangle
             {
                 property string icon: "\uf04b"
+                enabled: !serverManager.isStarted
                 width: 50
                 height: 50
                 radius: 25
@@ -112,7 +113,8 @@ Rectangle
 
                 function select()
                 {
-                    serverManager.startServer(parseInt(hostArea.text));
+                    serverManager.isStarted = true;
+                    //serverManager.startServer(parseInt(hostArea.text));
                 }
 
                 MouseArea
@@ -124,35 +126,45 @@ Rectangle
                     onClicked: parent.select()
                 }
             }
-
-            ColumnLayout
+            Rectangle
             {
-                width: 50
-                spacing: 10
-                Rectangle
+                id: rectangle
+                width: 100
+                height: 100
+                color: "transparent"
+                ColumnLayout
                 {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: 10
+                    Rectangle
+                    {
 
-                    width: 20
-                    height: 20
-                    radius: 20
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    color: Material.color(Material.Red)
-                }
-                Text
-                {
-                    text: "APAGADO"
-                    font.pointSize: 8
-                    verticalAlignment: Text.AlignVCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-                    color: "white"
+                        width: 20
+                        height: 20
+                        radius: 20
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                        color: serverManager.isStarted?Material.color(Material.Blue, Material.Shade200):Material.color(Material.Red)
+                    }
+                    Text
+                    {
+                        text: serverManager.isStarted?"CORRIENDO":"DETENIDO"
+                        font.pointSize: 8
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                        color: "white"
+                    }
                 }
             }
+
+
 
 
             Rectangle
             {
                 property string icon: "\uf04d"
+                enabled: serverManager.isStarted
                 width: 50
                 height: 50
                 radius: 25
@@ -169,7 +181,7 @@ Rectangle
 
                 function select()
                 {
-
+                    serverManager.isStarted = false;
                 }
 
                 MouseArea
@@ -186,6 +198,7 @@ Rectangle
         ServerManager
         {
             id: serverManager
+            property bool isStarted: false
         }
 
 }

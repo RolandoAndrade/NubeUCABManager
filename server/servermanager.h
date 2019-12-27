@@ -9,10 +9,10 @@
 class ServerManager: public QObject
 {
     Q_OBJECT
-    //Q_PROPERTY(double best READ best WRITE setBest NOTIFY bestchanged)
 
     private:
         QQmlApplicationEngine engine;
+
     public:
         explicit ServerManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
 
