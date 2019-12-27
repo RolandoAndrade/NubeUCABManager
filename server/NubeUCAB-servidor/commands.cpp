@@ -143,13 +143,25 @@ void mkdirectory(stringstream &data, int &code, string directory)
     }
 }
 
-void ls(FILE *in, int &code)
+void ls(stringstream &data, int &code)
 {
-    char *line;
-    size_t len = 0;
-    getline(&line, &len,in);
-    if(string(line).find("total")==string::npos)
+    DIR *dir;
+    struct dirent *ent;
+    char buff[2048];
+    getcwd(buff, sizeof(buff));
+    if ((dir = opendir (buff)) != NULL)
     {
+        while ((ent = readdir (dir)) != NULL)
+        {
+            data<< ent->d_name <<"\n";
+        }
+        closedir (dir);
+        code = 1;
+    }
+    else
+    {
+        cout<<buff<<endl;
+        data<<"Error: No encontrado"<<endl;
         code = 0;
     }
 }
@@ -179,27 +191,9 @@ string execute(string command, string directory, int &code, string directory2)
     {
         renameFile(data,code, directory, directory2);
     }
-    else
+    else if(command=="ls")
     {
-        FILE *in;
-        if(!(in = popen(directory.c_str(), "r")))
-        {
-            data<<"No se puede realizar la operación: "<<directory<<endl;
-        }
-        else
-        {
-            code = 1;
-            if(command=="ls")
-            {
-                ls(in,code);
-            }
-            char buff[2048];
-            while(fgets(buff,sizeof(buff), in)!=NULL)
-            {
-                data<<buff;
-            }
-            pclose(in);
-        }
+        ls(data,code);
     }
 
     return data.str();
