@@ -47,4 +47,5 @@ HEADERS += \
     server/NubeUCAB-servidor/socket_server.h \
     server/NubeUCAB-servidor/FTPRequest.h \
     server/NubeUCAB-servidor/socket_exceptions.h \
-    server/NubeUCAB-servidor/FTPResponse.h
+    server/NubeUCAB-servidor/FTPResponse.h \
+    server/serverwrapper.h

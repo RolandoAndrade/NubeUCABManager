@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QQmlApplicationEngine>
-#include <QThread>
+#include <thread>
 #include "NubeUCAB-servidor/FTPServer.h"
 
 class ServerManager: public QObject
@@ -12,7 +12,7 @@ class ServerManager: public QObject
 
     private:
         QQmlApplicationEngine engine;
-
+        std::thread tServer;
     public:
         explicit ServerManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
 
@@ -20,20 +20,21 @@ class ServerManager: public QObject
         {
 
         }
-    public slots:
 
+    public slots:
         void startServer(int port = 3000)
         {
-            QThread* thread = new QThread;
-            this->moveToThread(thread);
             FTPServer server(port);
-            server.start();
+            tServer = std::thread(&FTPServer::start,server);
+            //t1.join();
+
         }
 
         void stopServer()
         {
 
         }
+
 };
 
 #endif // SERVERMANAGER_H

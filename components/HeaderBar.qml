@@ -114,7 +114,7 @@ Rectangle
                 function select()
                 {
                     serverManager.isStarted = true;
-                    //serverManager.startServer(parseInt(hostArea.text));
+                    serverManager.startServer(parseInt(hostArea.text));
                 }
 
                 MouseArea
