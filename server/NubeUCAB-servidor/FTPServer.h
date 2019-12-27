@@ -62,7 +62,7 @@ class FTPServer
 		int ls(string args, string &response, int print = 0)
 		{
 			int code;
-            string request = FTPRequest("ls",args).getRequest("\n");
+            string request = FTPRequest("ls -l",args).getRequest("\n");
 			response = execute("ls",request,code);
 
             if(1)
