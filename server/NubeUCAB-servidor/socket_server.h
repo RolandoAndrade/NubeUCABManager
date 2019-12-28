@@ -77,6 +77,7 @@ class ServerSocket : private Socket
 		{
 			if(!Socket::close())
 			{
+				cout<<"Errrrrrorrrr: "<<strerror(errno)<<" "<<getFD()<<endl;
 				throw SocketException(strerror(errno));
 			}
 		}

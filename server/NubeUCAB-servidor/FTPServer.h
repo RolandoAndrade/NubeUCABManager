@@ -62,10 +62,10 @@ class FTPServer
 		int ls(string args, string &response, int print = 0)
 		{
 			int code;
-            string request = FTPRequest("ls -l",args).getRequest("\n");
+                        string request = FTPRequest("ls -l",args).getRequest("\n");
 			response = execute("ls",request,code);
 
-            if(1)
+                        if(print)
 			{
 				cout<<response;
 			}
@@ -435,10 +435,12 @@ class FTPServer
 											}
 											out << buff;																					
 										}
-									
+										
 										out.close();
-										ax.close();
+										//ax.close();
 										(*dataSocket).close();
+
+										
 										responseMsg = FTPResponse("226", "Transferencia completa").getResponse();
 									}
 									else
@@ -489,8 +491,10 @@ class FTPServer
 											length -= read_sz;
 										}
 										in.close();
-										temp_socket.close();
+										
 										(*dataSocket).close();
+
+										//temp_socket.close();
 										responseMsg = FTPResponse("226", "Transferencia completa").getResponse();
 									}
 									else
