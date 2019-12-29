@@ -4,8 +4,7 @@
 
 #include <QObject>
 #include <QQmlApplicationEngine>
-#include <vector>
-#include <map>
+#include "../server/NubeUCAB-servidor/commands.h"
 
 using namespace std;
 
@@ -14,6 +13,9 @@ class FileManager : public QObject
     Q_OBJECT
 
     private:
+        string getNameOfFile(string);
+        string getTypeOfFile(string);
+        void insertNewDirectory(vector<map<string,string>> &v,map<string,string>map);
         vector<map<string,string>> listOfFiles();
 
 
