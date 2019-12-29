@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserManager>("com.nubeucab.usermanager",1,0,"UserManager");
     qmlRegisterType<ServerManager>("com.nubeucab.servermanager",1,0,"ServerManager");
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/manager.qml")));
 
 
     if (engine.rootObjects().isEmpty())

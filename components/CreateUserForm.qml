@@ -171,23 +171,12 @@ Rectangle
 
         }
 
-        Rectangle
+        RadiusButton
         {
             Layout.alignment: Qt.AlignHCenter
-            property string icon: "\uf067"
-            width: 50
-            height: 50
-            radius: 25
+            icon: "\uf067"
             color: addUserArea.containsMouse?Material.color(Material.LightBlue, Material.Shade300):Material.color(Material.LightBlue, Material.Shade400)
-            Text
-            {
-                color: "white"
-                text: parent.icon
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignHCenter
-                width: 50
-                height: 50
-            }
+            opacity: 1
 
 
             function select()
@@ -207,17 +196,6 @@ Rectangle
                     passwordField.text = "";
                 }
 
-
-
-            }
-
-            MouseArea
-            {
-                id: addUserArea
-                anchors.fill: parent
-                hoverEnabled: true
-
-                onClicked: parent.select()
             }
         }
     }

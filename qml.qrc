@@ -7,6 +7,13 @@
         <file>components/UserCard.qml</file>
         <file>components/FileBrowser.qml</file>
         <file>components/PopupModal.qml</file>
+        <file>manager.qml</file>
+        <file>components/HeaderBarManager.qml</file>
+        <file>components/PathLabels.qml</file>
+        <file>components/SideBar.qml</file>
+        <file>components/FileContainer.qml</file>
+        <file>components/RadiusButton.qml</file>
+        <file>components/Folder.qml</file>
     </qresource>
     <qresource prefix="/fonts">
         <file alias="font.ttf">fonts/fontawesome-webfont.ttf</file>
