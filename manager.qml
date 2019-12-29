@@ -318,21 +318,21 @@ ApplicationWindow
 
         function cdRoute(route)
         {
-            /*clientManager.enterToFolder(route);
+            clientManager.enterToFolder(route);
             primaryRoute = route;
             backButton.route = route.substr(0,route.lastIndexOf("/"));
             backButton.visible = backButton.route.length>=originalRoute.length;
-            clientManager.retrieveFiles();*/
+            clientManager.retrieveFiles();
         }
 
         function cdFolder(folder)
         {
-            /*clientManager.enterToFolder(folder);
+            clientManager.enterToFolder(folder);
             backButton.route = primaryRoute;
             backButton.visible = true;
             primaryRoute+="/"+folder;
             headerLabels.model.append({patha: folder, cd: primaryRoute});
-            clientManager.retrieveFiles();*/
+            clientManager.retrieveFiles();
         }
 
 

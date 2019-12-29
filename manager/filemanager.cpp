@@ -116,7 +116,8 @@ vector<map<string,string>> FileManager::listOfFiles()
 
 void FileManager::enterToFolder(QString folderName)
 {
-
+    int code;
+    cout<<execute("cd",folderName.toStdString(),code)<<endl;
 }
 
 QVariantList FileManager::getFiles()
