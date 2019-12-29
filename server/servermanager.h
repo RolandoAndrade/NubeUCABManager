@@ -29,25 +29,9 @@ class ServerManager: public QObject
         }
 
     public slots:
-        void startServer(int p = 3000)
-        {
-            serverEnabled = true;
-            port = p;
-            FTPServer server(port,&serverEnabled);
-            tServer = std::thread(&FTPServer::start,server);
+        void startServer(int p = 3000);
 
-        }
-
-        void stopServer()
-        {
-            serverEnabled = false;
-            Socket s;
-            s.create();
-            s.connect(lookup("127.0.0.1"),port);
-            s.close();
-            tServer.detach();
-            tServer.~thread();
-        }
+        void stopServer();
 
 };
 

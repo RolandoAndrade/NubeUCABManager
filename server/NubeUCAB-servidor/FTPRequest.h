@@ -1,3 +1,6 @@
+#ifndef FTPREQUEST
+#define FTPREQUEST
+
 #include <string>
 #include <vector>
 #include <sstream>
@@ -110,3 +113,5 @@ class FTPRequest
 			}
 		}
 };
+
+#endif

@@ -1,33 +1,43 @@
 #ifndef FILEMANAGER_H
 #define FILEMANAGER_H
-#include "../server/NubeUCAB-servidor/commands.h"
+
 
 #include <QObject>
+#include <QQmlApplicationEngine>
+#include <vector>
+#include <map>
+
+using namespace std;
 
 class FileManager : public QObject
 {
     Q_OBJECT
-public:
-    explicit FileManager(QObject *parent = nullptr);
-    FileManager(){}
 
-public slots:
+    private:
+        vector<map<string,string>> listOfFiles();
 
-    void enterToFolder(QString folderName);
 
-    QVariantList getFiles();
+    public:
+        explicit FileManager(QObject *parent = nullptr);
+        FileManager(){}
 
-    QString getActualDir();
+    public slots:
 
-    void upLoadFile(QString fileName);
+        void enterToFolder(QString folderName);
 
-    void downLoadFile(QString fileName, QString path);
+        QVariantList getFiles();
 
-    void deleteFile(QString fileName);
+        QString getActualDir();
 
-    void createFolder(QString folderName);
+        void upLoadFile(QString fileName);
 
-    void moveFile(QString file, QString route);
+        void downLoadFile(QString fileName, QString path);
+
+        void deleteFile(QString fileName);
+
+        void createFolder(QString folderName);
+
+        void moveFile(QString file, QString route);
 };
 
 #endif // FILEMANAGER_H

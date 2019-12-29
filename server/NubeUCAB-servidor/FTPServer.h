@@ -1,3 +1,6 @@
+#ifndef FTPSERVER
+#define FTPSERVER
+
 #include <cstdlib>
 #include <cctype>
 #include <cstring>
@@ -581,3 +584,5 @@ class FTPServer
 			}
 		}
 };
+
+#endif

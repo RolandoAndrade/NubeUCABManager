@@ -1,5 +1,11 @@
 #include "filemanager.h"
 
+vector<map<string,string>> FileManager::listOfFiles()
+{
+    vector<map<string,string>> files;
+    return files;
+}
+
 void FileManager::enterToFolder(QString folderName)
 {
 
@@ -7,8 +13,8 @@ void FileManager::enterToFolder(QString folderName)
 
 QVariantList FileManager::getFiles()
 {
-    QVariant q;
-    return q;
+    QVariantList files;
+    return files;
 }
 
 QString FileManager::getActualDir()
@@ -40,4 +46,5 @@ void FileManager::moveFile(QString file, QString route)
 {
 
 }
+
 

@@ -1,3 +1,6 @@
+#ifndef FTPRESPONSE
+#define FTPRESPONSE
+
 #include <string>
 #include <vector>
 #include <sstream>
@@ -104,3 +107,5 @@ class FTPResponse {
 			return port;
 		}
 };
+
+#endif

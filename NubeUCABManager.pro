@@ -18,10 +18,9 @@ SOURCES += \
         main.cpp \
     server/users_manager.cpp \
     server/NubeUCAB-servidor/commands.cpp \
-    server/NubeUCAB-servidor/commands.cpp \
-    server/users_manager.cpp \
-    main.cpp \
-    manager/filemanager.cpp
+    manager/filemanager.cpp \
+    server/usermanager.cpp \
+    server/servermanager.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -60,7 +59,6 @@ HEADERS += \
     server/NubeUCAB-servidor/socket_exceptions.h \
     server/NubeUCAB-servidor/socket_server.h \
     server/servermanager.h \
-    server/serverwrapper.h \
     server/usermanager.h \
     server/users_manager.h \
     manager/filemanager.h
