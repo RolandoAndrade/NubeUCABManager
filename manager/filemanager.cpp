@@ -157,7 +157,8 @@ void FileManager::deleteFile(QString fileName)
 
 void FileManager::createFolder(QString folderName)
 {
-
+    int code;
+    cout<<execute("mkdir",folderName.toStdString(),code);
 }
 
 void FileManager::moveFile(QString file, QString route)
