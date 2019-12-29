@@ -77,7 +77,7 @@ Pane
             background: Rectangle {color:"transparent"}
             onTextChanged:
             {
-                clientManager.search(buscar.text.toUpperCase());
+                fileManager.search(buscar.text.toUpperCase());
             }
          }
         ToolButton

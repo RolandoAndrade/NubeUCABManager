@@ -1,5 +1,10 @@
 #include "filemanager.h"
 
+FileManager::FileManager(QObject *parent)
+{
+
+}
+
 string FileManager::getNameOfFile(string s)
 {
     size_t pos = s.find(":")+4;

@@ -6,6 +6,7 @@ import QtGraphicalEffects 1.0
 import QtQml.Models 2.3
 
 import "components" as UIObjects
+import com.nubeucab.filemanager 1.0
 
 
 ApplicationWindow
@@ -24,8 +25,8 @@ ApplicationWindow
 
     Component.onCompleted:
     {
-        /*clientManager.startUrl();
-        clientManager.retrieveFiles();*/
+        fileManager.startUrl();
+        fileManager.retrieveFiles();
     }
 
     UIObjects.Header
@@ -288,4 +289,88 @@ ApplicationWindow
             NumberAnimation { target: pasteManager; property: "scale"; to: 1.0; duration: 100}
         }
     }
+
+    FileManager
+    {
+        id: fileManager
+        property string primaryRoute;
+        property string originalRoute;
+        property variant files;
+
+        function startUrl()
+        {
+            /*var a = clientManager.getActualDir();
+            primaryRoute = a.substr(0,a.lastIndexOf("\""));
+            originalRoute = primaryRoute;
+            a = a.substr(a.lastIndexOf("/")+1,a.lastIndexOf("\"")-a.lastIndexOf("/")-1);
+            headerLabels.model.append({patha: a, cd: primaryRoute});*/
+        }
+
+        function retrieveFiles()
+        {
+            filesContainer.model.clear();
+            files = fileManager.getFiles();
+            for(var i = 0;i<files.length;i++)
+            {
+                filesContainer.model.append(files[i])
+            }
+        }
+
+        function cdRoute(route)
+        {
+            /*clientManager.enterToFolder(route);
+            primaryRoute = route;
+            backButton.route = route.substr(0,route.lastIndexOf("/"));
+            backButton.visible = backButton.route.length>=originalRoute.length;
+            clientManager.retrieveFiles();*/
+        }
+
+        function cdFolder(folder)
+        {
+            /*clientManager.enterToFolder(folder);
+            backButton.route = primaryRoute;
+            backButton.visible = true;
+            primaryRoute+="/"+folder;
+            headerLabels.model.append({patha: folder, cd: primaryRoute});
+            clientManager.retrieveFiles();*/
+        }
+
+
+        function search(filter)
+        {
+            filesContainer.model.clear();
+            for(var i = 0;i<files.length;i++)
+            {
+                if(files[i]["thename"].toUpperCase().indexOf(filter)>-1)
+                {
+                    filesContainer.model.append(files[i]);
+                }
+            }
+        }
+
+        function moveIntoFolder(file, route)
+        {
+            /*route = route+"/"+file;
+            clientManager.moveFile(file, route);
+            clientManager.retrieveFiles();*/
+        }
+
+        function moveIntoRoute(original, file)
+        {
+            /*var route = primaryRoute+"/"+file;
+            original = original + "/"+file;
+            clientManager.moveFile(original, route);
+            clientManager.retrieveFiles();*/
+        }
+
+        function rename(originalName, newName)
+        {
+            /*clientManager.moveFile(originalName, newName);
+            clientManager.retrieveFiles();
+            pasteManager.clear();*/
+        }
+
+    }
 }
+
+

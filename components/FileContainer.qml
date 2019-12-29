@@ -34,7 +34,7 @@ GridView
     delegate: Folder{
         name: thename
         type: thetype
-        route: clientManager.primaryRoute
+        route: fileManager.primaryRoute
     }
 
     property int fromIndex: -1

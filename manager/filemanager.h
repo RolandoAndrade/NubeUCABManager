@@ -21,7 +21,6 @@ class FileManager : public QObject
 
     public:
         explicit FileManager(QObject *parent = nullptr);
-        FileManager(){}
 
     public slots:
 

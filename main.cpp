@@ -3,6 +3,7 @@
 #include <QQuickStyle>
 #include "server/usermanager.h"
 #include "server/servermanager.h"
+#include "manager/filemanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -14,7 +15,7 @@ int main(int argc, char *argv[])
     QQuickStyle::setStyle("Material");
     qmlRegisterType<UserManager>("com.nubeucab.usermanager",1,0,"UserManager");
     qmlRegisterType<ServerManager>("com.nubeucab.servermanager",1,0,"ServerManager");
-    qmlRegisterType<ServerManager>("com.nubeucab.filemanager",1,0,"FileManager");
+    qmlRegisterType<FileManager>("com.nubeucab.filemanager",1,0,"FileManager");
 
     engine.load(QUrl(QStringLiteral("qrc:/manager.qml")));
 
