@@ -45,14 +45,22 @@ Rectangle
 
         onMouseXChanged:
         {
-            var dx = mouseX - previousX
-            mainWindow.setX(mainWindow.x + dx)
+            if(!isMaximized)
+            {
+                var dx = mouseX - previousX
+                mainWindow.setX(mainWindow.x + dx)
+            }
+
+
         }
 
         onMouseYChanged:
         {
-            var dy = mouseY - previousY
-            mainWindow.setY(mainWindow.y + dy)
+            if(!isMaximized)
+            {
+                var dy = mouseY - previousY
+                mainWindow.setY(mainWindow.y + dy)
+            }
         }
     }
 
@@ -77,7 +85,7 @@ Rectangle
         font.family: "FontAwesome"
         text: "\uf066"
         anchors.right: parent.right
-        anchors.rightMargin: 0
+        anchors.rightMargin: 30
         hoverEnabled: true
         font.pointSize: 8
         height: 25
@@ -85,5 +93,19 @@ Rectangle
         onClicked: (mainWindow.isMaximized=!mainWindow.isMaximized)?mainWindow.setGeometry(0,0,screen.width,screen.height):mainWindow.setGeometry(screen.width / 2 - 700 / 2,screen.height / 2 - 500 / 2,700,500)
         Material.foreground: "white"
         visible: parent.showMaximize
+    }
+
+    ToolButton
+    {
+        font.family: "FontAwesome"
+        text: "\uf068"
+        anchors.right: parent.right
+        anchors.rightMargin: 0
+        hoverEnabled: true
+        font.pointSize: 8
+        height: 25
+        width: 25
+        onClicked: mainWindow.showMinimized();
+        Material.foreground: "white"
     }
 }
