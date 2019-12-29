@@ -167,7 +167,7 @@ Rectangle
             focus = true
             if(folderCard.type === "folder")
             {
-                //clientManager.cdFolder(folderCard.name);
+                fileManager.cdFolder(folderCard.name);
             }
             else
             {

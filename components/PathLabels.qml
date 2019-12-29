@@ -37,7 +37,7 @@ Rectangle
             if(headerLabels.count>index+1)
             {
                 headerLabels.model.remove(index+1,headerLabels.model.count-1-index);
-                //clientManager.cdRoute(cdRoute);
+                fileManager.cdRoute(cdRoute);
             }
 
 

@@ -119,6 +119,7 @@ void pwd(stringstream &data, int &code)
 
 void cd(stringstream &data, int &code, string directory)
 {
+    cout<<directory<<endl;
     if(chdir(directory.c_str()) == 0)
     {
         code = 1;

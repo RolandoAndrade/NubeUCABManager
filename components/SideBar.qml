@@ -26,7 +26,7 @@ Drawer
         outsideclick.focus = true
         if(rename)
         {
-            clientManager.rename(fileName, newNameText.text);
+            fileManager.rename(fileName, newNameText.text);
         }
         rename = false;
     }
@@ -106,10 +106,10 @@ Drawer
 
                 function select()
                 {
-                    clientManager.deleteFile(fileName);
+                    fileManager.deleteFile(fileName);
                     rename = false;
                     drawer.close();
-                    clientManager.retrieveFiles();
+                    fileManager.retrieveFiles();
                 }
             }
         }
@@ -126,7 +126,7 @@ Drawer
             loadingIndicator.message = "Descargando archivo...";
             drawer.rename = false;
             drawer.close();
-            clientManager.downLoadFile(drawer.fileName,fileSelector.fileUrls[0].substr(7));
+            fileManager.downLoadFile(drawer.fileName,fileSelector.fileUrls[0].substr(7));
         }
     }
 

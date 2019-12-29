@@ -90,7 +90,7 @@ Pane
             onClicked:
             {
                 focus = true
-                clientManager.search(buscar.text.toUpperCase());
+                fileManager.search(buscar.text.toUpperCase());
             }
 
             Material.foreground: Material.color(Material.Blue)

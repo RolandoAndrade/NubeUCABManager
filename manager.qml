@@ -91,7 +91,7 @@ ApplicationWindow
            {
                var a = fileBrowser.fileUrls[0].substr(7);
                loadingIndicator.message = "Subiendo archivo...";
-               clientManager.upLoadFile(a);
+               fileManager.upLoadFile(a);
            }
            catch(e)
            {
@@ -131,7 +131,7 @@ ApplicationWindow
 
         function select()
         {
-            //clientManager.cdRoute(route);
+            fileManager.cdRoute(route);
             headerLabels.model.remove(headerLabels.model.count-1);
         }
 
@@ -207,8 +207,8 @@ ApplicationWindow
                 {
                     if(newFolderName.text.length>0)
                     {
-                        clientManager.createFolder(newFolderName.text);
-                        clientManager.retrieveFiles();
+                        fileManager.createFolder(newFolderName.text);
+                        fileManager.retrieveFiles();
                         newFolderName.text = "";
                         createFolder.close();
                     }
@@ -265,13 +265,13 @@ ApplicationWindow
 
         function cutFile(name)
         {
-            originalRoute = clientManager.primaryRoute;
+            originalRoute = fileManager.primaryRoute;
             fileName = name;
         }
 
         function select()
         {
-            clientManager.moveIntoRoute(originalRoute, fileName);
+            fileManager.moveIntoRoute(originalRoute, fileName);
             clear();
         }
 
@@ -299,11 +299,12 @@ ApplicationWindow
 
         function startUrl()
         {
-            /*var a = clientManager.getActualDir();
-            primaryRoute = a.substr(0,a.lastIndexOf("\""));
+            var a = fileManager.getActualDir();
+            primaryRoute = a.substr(1,a.lastIndexOf("\"")-1);
             originalRoute = primaryRoute;
             a = a.substr(a.lastIndexOf("/")+1,a.lastIndexOf("\"")-a.lastIndexOf("/")-1);
-            headerLabels.model.append({patha: a, cd: primaryRoute});*/
+            headerLabels.model.append({patha: a, cd: primaryRoute});
+            console.log(originalRoute)
         }
 
         function retrieveFiles()
@@ -318,21 +319,23 @@ ApplicationWindow
 
         function cdRoute(route)
         {
-            clientManager.enterToFolder(route);
+            console.log(route)
+            fileManager.enterToFolder(route);
             primaryRoute = route;
             backButton.route = route.substr(0,route.lastIndexOf("/"));
             backButton.visible = backButton.route.length>=originalRoute.length;
-            clientManager.retrieveFiles();
+            fileManager.retrieveFiles();
         }
 
         function cdFolder(folder)
         {
-            clientManager.enterToFolder(folder);
+            console.log(folder)
+            fileManager.enterToFolder(folder);
             backButton.route = primaryRoute;
             backButton.visible = true;
             primaryRoute+="/"+folder;
             headerLabels.model.append({patha: folder, cd: primaryRoute});
-            clientManager.retrieveFiles();
+            fileManager.retrieveFiles();
         }
 
 
@@ -351,22 +354,22 @@ ApplicationWindow
         function moveIntoFolder(file, route)
         {
             /*route = route+"/"+file;
-            clientManager.moveFile(file, route);
-            clientManager.retrieveFiles();*/
+            fileManager.moveFile(file, route);
+            fileManager.retrieveFiles();*/
         }
 
         function moveIntoRoute(original, file)
         {
             /*var route = primaryRoute+"/"+file;
             original = original + "/"+file;
-            clientManager.moveFile(original, route);
-            clientManager.retrieveFiles();*/
+            fileManager.moveFile(original, route);
+            fileManager.retrieveFiles();*/
         }
 
         function rename(originalName, newName)
         {
-            /*clientManager.moveFile(originalName, newName);
-            clientManager.retrieveFiles();
+            /*fileManager.moveFile(originalName, newName);
+            fileManager.retrieveFiles();
             pasteManager.clear();*/
         }
 

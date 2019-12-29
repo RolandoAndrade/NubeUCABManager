@@ -71,7 +71,7 @@ GridView
                 var itema = listModel.get(filesContainer.toIndex);
                 if(itema["thetype"]=="folder")
                 {
-                    clientManager.moveIntoFolder(card["thename"], itema["thename"]);
+                    fileManager.moveIntoFolder(card["thename"], itema["thename"]);
                 }
                 else
                 {

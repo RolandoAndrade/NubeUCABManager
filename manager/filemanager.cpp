@@ -136,7 +136,8 @@ QVariantList FileManager::getFiles()
 
 QString FileManager::getActualDir()
 {
-    return QString("");
+    int code;
+    return QString(execute("pwd","", code).c_str());
 }
 
 void FileManager::upLoadFile(QString fileName)
