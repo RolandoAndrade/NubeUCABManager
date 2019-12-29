@@ -17,7 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
     server/users_manager.cpp \
-    server/NubeUCAB-servidor/commands.cpp
+    server/NubeUCAB-servidor/commands.cpp \
+    server/NubeUCAB-servidor/commands.cpp \
+    server/users_manager.cpp \
+    main.cpp \
+    manager/filemanager.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -47,4 +51,16 @@ HEADERS += \
     server/NubeUCAB-servidor/socket_server.h \
     server/NubeUCAB-servidor/FTPRequest.h \
     server/NubeUCAB-servidor/socket_exceptions.h \
-    server/NubeUCAB-servidor/FTPResponse.h
+    server/NubeUCAB-servidor/FTPResponse.h \
+    server/NubeUCAB-servidor/commands.h \
+    server/NubeUCAB-servidor/FTPRequest.h \
+    server/NubeUCAB-servidor/FTPResponse.h \
+    server/NubeUCAB-servidor/FTPServer.h \
+    server/NubeUCAB-servidor/socket.h \
+    server/NubeUCAB-servidor/socket_exceptions.h \
+    server/NubeUCAB-servidor/socket_server.h \
+    server/servermanager.h \
+    server/serverwrapper.h \
+    server/usermanager.h \
+    server/users_manager.h \
+    manager/filemanager.h
