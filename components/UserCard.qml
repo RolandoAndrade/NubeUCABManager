@@ -170,7 +170,7 @@ Rectangle
         function select()
         {
             userManager.removeUser(usernameCard.text);
-            popupadd.openModal("\uf1f8","Eliminado","Se ha eliminado un usuario de manera exitosa",Material.color(Material.Red));
+            popupadd.openModal("deleted","Eliminado","Se ha eliminado un usuario de manera exitosa",Material.color(Material.Red));
             userManager.reset();
         }
 

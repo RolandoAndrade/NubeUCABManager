@@ -33,7 +33,7 @@ Popup
                     return "\uf00c";
                 if(type=="error")
                     return "\uf00d";
-                return "\uf00c";
+                return "\uf1f8";
             }
             color: popupadd.colorIcon
             Layout.alignment: Qt.AlignHCenter

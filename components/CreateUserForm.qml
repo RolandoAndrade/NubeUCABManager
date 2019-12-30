@@ -189,7 +189,8 @@ Rectangle
                 }
                 else
                 {
-                    userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
+                    var x = usernameField.text.toLowerCase().replace(/ /g,'');
+                    userManager.addUser(x, passwordField.text,directoryRoute.text);
                     popupadd.openModal("success","Éxito","Se ha creado un usuario de manera exitosa",Material.color(Material.Green));
                     userManager.reset();
                     usernameField.text = "";
