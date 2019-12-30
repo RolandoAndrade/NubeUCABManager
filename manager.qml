@@ -377,6 +377,7 @@ ApplicationWindow
         {
             fileManager.copyFile(file,route+"/"+file);
             retrieveFiles();
+            popup.openModal("success","Descargado","El archivo ha sido descargado", Material.color(Material.Green))
         }
 
     }
