@@ -14,8 +14,22 @@ Rectangle
     width: Math.min(mainWindow.width - 200,800)
     height: 100
     radius: 10
-    border.color: "#eee"
+    border.color: "#eaeaea"
     clip: true
+    color: userInspect.containsMouse?"#F9F9F9":"white"
+
+    MouseArea
+    {
+        id: userInspect
+        anchors.fill: parent
+        hoverEnabled: true
+
+        onClicked:
+        {
+            serverRoute.setRoute(userCard.route);
+            serverRoute.goToFileManager();
+        }
+    }
 
 
 
@@ -59,6 +73,7 @@ Rectangle
 
     Rectangle
     {
+        color: userCard.color
         anchors.right: parent.right
         anchors.rightMargin: 70
         anchors.left: parent.left

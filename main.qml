@@ -56,12 +56,16 @@ ApplicationWindow
         anchors.bottom: parent.bottom
         anchors.top: parent.top
         spacing: 25
+        property string route: headerItem.route
         header: Rectangle
         {
+            id: rectHed
+            property string route: generalData.route
             anchors.horizontalCenter: parent.horizontalCenter
             width: generalData.width
             height: 350
             color: "transparent"
+
             UIObjects.CreateUserForm
             {
                 anchors.verticalCenter: parent.verticalCenter
@@ -107,7 +111,7 @@ ApplicationWindow
 
         function select()
         {
-            serverRoute.setRoute(directoryRoute.text);
+            serverRoute.setRoute(listData.route);
             serverRoute.goToFileManager();
         }
     }

@@ -8,6 +8,8 @@ import com.nubeucab.usermanager 1.0
 Rectangle
 {
     id: generalData
+
+    property string route: "/home/rolandoandrade/NubeUCAB"
     height: 300
     Layout.alignment: Qt.AlignHCenter
     radius: 10
@@ -42,7 +44,7 @@ Rectangle
             Text
             {
                 id: directoryRoute
-                text: "/home/rolandoandrade/NubeUCAB"
+                text: route
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
                 color: Material.color(Material.Grey, Material.Shade400)
@@ -205,7 +207,7 @@ Rectangle
         function done()
         {
             directoryRoute.text = fileBrowser.fileUrls[0].substr(7);
-            serverRoute.setRoute(directoryRoute.text);
+            route = directoryRoute.text;
         }
     }
 

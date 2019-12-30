@@ -9,6 +9,9 @@ FileDialog {
     sidebarVisible: false
     selectFolder: true
 
+    width:400
+    height: 400
+
     function done()
     {
 
