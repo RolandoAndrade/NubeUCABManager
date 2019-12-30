@@ -147,7 +147,8 @@ void FileManager::copyFile(QString src, QString dest)
 
 void FileManager::deleteFile(QString fileName)
 {
-
+    int code;
+    cout<<execute("rm",fileName.toStdString(),code);
 }
 
 void FileManager::createFolder(QString folderName)
