@@ -1,3 +1,5 @@
+#ifndef MSOCK_H
+#define MSOCK_H
 #include <iostream>
 #include <cstdio>
 #include <cstring>
@@ -53,9 +55,9 @@ class Socket
 			return sockfd != -1; 
 		}
 
-		int create()
+        int create(int type = SOCK_STREAM)
 		{
-			sockfd = socket(PF_INET, SOCK_STREAM, 0);
+            sockfd = socket(PF_INET, type, 0);
 
 			if(!is_valid()) 
 			{
@@ -194,3 +196,5 @@ class Socket
 			return 1;
 		}
 };
+
+#endif

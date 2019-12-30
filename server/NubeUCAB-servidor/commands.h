@@ -23,6 +23,7 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <netinet/in.h>
+#include "socket.h"
 #include "socket_exceptions.h"
 
 using namespace std;
@@ -43,5 +44,6 @@ string replaceAllOccurences(string s, string search, string replace);
 int parseCommand(string command,string& cmd,vector<string>& flags, vector<string>& args);
 int parseCommand(string command,string& cmd, string& args);
 void copyFile(string src, string dest);
+string getIP();
 
 #endif

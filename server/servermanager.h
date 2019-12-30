@@ -33,6 +33,8 @@ class ServerManager: public QObject
 
         void stopServer();
 
+        QString getIP();
+
 };
 
 #endif // SERVERMANAGER_H

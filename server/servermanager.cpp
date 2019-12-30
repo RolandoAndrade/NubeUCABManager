@@ -19,3 +19,8 @@ void ServerManager::stopServer()
     tServer.detach();
     tServer.~thread();
 }
+
+QString ServerManager::getIP()
+{
+    return QString(::getIP().c_str());
+}

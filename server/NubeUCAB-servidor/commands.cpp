@@ -312,3 +312,28 @@ void copyFile(string src, string dest)
         }
     }
 }
+
+string getIP()
+{
+    Socket s = Socket();
+    if(s.create(SOCK_DGRAM))
+    {
+        if(s.connect(INADDR_LOOPBACK,9))
+        {
+            char buf[INET_ADDRSTRLEN];
+            struct sockaddr_in local_address;
+            socklen_t address_length = sizeof(local_address);
+            getsockname(s.getFD(), (struct sockaddr*)&local_address, &address_length);
+            if (inet_ntop(AF_INET, &local_address.sin_addr, buf, INET_ADDRSTRLEN) == 0x0)
+            {
+                return "";
+            }
+            else
+            {
+                return buf;
+            }
+        }
+    }
+
+    return "";
+}
