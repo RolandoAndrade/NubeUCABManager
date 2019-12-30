@@ -17,10 +17,11 @@ int main(int argc, char *argv[])
     qmlRegisterType<UserManager>("com.nubeucab.usermanager",1,0,"UserManager");
     qmlRegisterType<ServerManager>("com.nubeucab.servermanager",1,0,"ServerManager");
     qmlRegisterType<FileManager>("com.nubeucab.filemanager",1,0,"FileManager");
-    qmlRegisterType<FileManager>("com.nubeucab.srmanager",1,0,"ServerRouteManager");
+    qmlRegisterType<ServerRouteManager>("com.nubeucab.srmanager",1,0,"ServerRouteManager");
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
+    engine.load(QUrl(QStringLiteral("qrc:/manager.qml")));
 
     if (engine.rootObjects().isEmpty())
         return -1;

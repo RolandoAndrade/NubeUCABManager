@@ -13,6 +13,7 @@ import com.nubeucab.srmanager 1.0
 ApplicationWindow
 {
     id: mainWindow
+    objectName: "WindowFileManager"
     width: 700
     height: 500
     title: qsTr('NubeUCAB')
@@ -22,12 +23,20 @@ ApplicationWindow
     property int previousX
     property int previousY
     property bool isMaximized: false
-    visible: true
+    visible: false
+
+    onVisibilityChanged:
+    {
+        if(visible)
+        {
+            fileManager.startUrl();
+            fileManager.retrieveFiles();
+        }
+    }
 
     Component.onCompleted:
     {
-        fileManager.startUrl();
-        fileManager.retrieveFiles();
+
     }
 
     UIObjects.Header
@@ -112,6 +121,31 @@ ApplicationWindow
         function select()
         {
             fileBrowser.open()
+        }
+    }
+
+    UIObjects.RadiusButton
+    {
+        id: backAdminButton
+        property string route;
+        icon: "\uf015"
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: 20
+        anchors.bottomMargin: 20
+        visible: fileManager.primaryRoute==fileManager.originalRoute
+
+        function select()
+        {
+            serverRoute.goToUserManager();
+        }
+
+        SequentialAnimation
+        {
+            running: backAdminButton.visible
+            NumberAnimation { target: backAdminButton; property: "scale"; from:0; to: 1.2; duration: 100}
+            NumberAnimation { target: backAdminButton; property: "scale"; to: 0.8; duration: 100}
+            NumberAnimation { target: backAdminButton; property: "scale"; to: 1.0; duration: 100}
         }
     }
 
@@ -296,10 +330,12 @@ ApplicationWindow
 
         function startUrl()
         {
-            var a = fileManager.getActualDir();
-            primaryRoute = a.substr(1,a.lastIndexOf("\"")-1);
-            originalRoute = primaryRoute;
-            a = a.substr(a.lastIndexOf("/")+1,a.lastIndexOf("\"")-a.lastIndexOf("/")-1);
+            var a = serverRoute.getRoute();
+            fileManager.enterToFolder(a);
+            primaryRoute = a;
+            originalRoute = a;
+            a = a.substr(a.lastIndexOf("/")+1);
+            headerLabels.model.clear();
             headerLabels.model.append({patha: a, cd: primaryRoute});
         }
 

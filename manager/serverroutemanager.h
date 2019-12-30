@@ -15,14 +15,20 @@ class ServerRouteManager : public QObject
         static string SERVER_DIRECTORY;
 
 
-    public:
-        explicit ServerRouteManager(QObject *parent = nullptr);
 
+    public:
+        explicit ServerRouteManager(QQmlApplicationEngine& engine, QObject *parent = nullptr);
+
+        ServerRouteManager(){}
     public slots:
 
         void setRoute(QString route);
 
         QString getRoute();
+
+        void goToUserManager();
+
+        void goToFileManager();
 
 };
 

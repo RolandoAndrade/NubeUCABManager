@@ -12,6 +12,7 @@ import "components" as UIObjects
 ApplicationWindow
 {
     id: mainWindow
+    objectName: "WindowUserManager"
     width: 700
     height: 500
     title: qsTr('NubeUCAB')
@@ -106,7 +107,8 @@ ApplicationWindow
 
         function select()
         {
-
+            serverRoute.setRoute(directoryRoute.text);
+            serverRoute.goToFileManager();
         }
     }
 
