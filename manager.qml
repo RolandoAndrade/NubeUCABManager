@@ -7,6 +7,7 @@ import QtQml.Models 2.3
 
 import "components" as UIObjects
 import com.nubeucab.filemanager 1.0
+import com.nubeucab.srmanager 1.0
 
 
 ApplicationWindow
@@ -380,6 +381,11 @@ ApplicationWindow
             popup.openModal("success","Descargado","El archivo ha sido descargado", Material.color(Material.Green))
         }
 
+    }
+
+    ServerRouteManager
+    {
+        id: serverRoute
     }
 }
 

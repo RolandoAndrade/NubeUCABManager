@@ -18,7 +18,6 @@ class FileManager : public QObject
         void insertNewDirectory(vector<map<string,string>> &v,map<string,string>map);
         vector<map<string,string>> listOfFiles();
 
-
     public:
         explicit FileManager(QObject *parent = nullptr);
 

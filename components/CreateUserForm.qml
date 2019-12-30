@@ -175,8 +175,6 @@ Rectangle
         {
             Layout.alignment: Qt.AlignHCenter
             icon: "\uf067"
-            color: addUserArea.containsMouse?Material.color(Material.LightBlue, Material.Shade300):Material.color(Material.LightBlue, Material.Shade400)
-            opacity: 1
 
 
             function select()
@@ -206,7 +204,8 @@ Rectangle
         id: fileBrowser
         function done()
         {
-            directoryRoute.text = fileDialog.fileUrls[0].substr(7);
+            directoryRoute.text = fileBrowser.fileUrls[0].substr(7);
+            serverRoute.setRoute(directoryRoute.text);
         }
     }
 

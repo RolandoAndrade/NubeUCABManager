@@ -20,7 +20,8 @@ SOURCES += \
     server/NubeUCAB-servidor/commands.cpp \
     manager/filemanager.cpp \
     server/usermanager.cpp \
-    server/servermanager.cpp
+    server/servermanager.cpp \
+    manager/serverroutemanager.cpp
 
 RESOURCES += qml.qrc \
     images.qrc
@@ -61,4 +62,5 @@ HEADERS += \
     server/servermanager.h \
     server/usermanager.h \
     server/users_manager.h \
-    manager/filemanager.h
+    manager/filemanager.h \
+    manager/serverroutemanager.h

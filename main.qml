@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 import QtQml.Models 2.3
+import com.nubeucab.srmanager 1.0
 
 import "components" as UIObjects
 
@@ -95,6 +96,24 @@ ApplicationWindow
         id:popupadd
     }
 
+    UIObjects.RadiusButton
+    {
+        icon: "\uf07b"
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.rightMargin: 20
+        anchors.bottomMargin: 20
+
+        function select()
+        {
+
+        }
+    }
+
+    ServerRouteManager
+    {
+        id: serverRoute
+    }
 
 
 }
