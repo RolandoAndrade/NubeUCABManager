@@ -30,9 +30,7 @@ class FileManager : public QObject
 
         QString getActualDir();
 
-        void upLoadFile(QString fileName);
-
-        void downLoadFile(QString fileName, QString path);
+        void copyFile(QString src, QString dest);
 
         void deleteFile(QString fileName);
 

@@ -184,13 +184,13 @@ Rectangle
 
                 if(usernameField.text.length==0||passwordField.text.length==0)
                 {
-                    popupadd.openModal("\uf00d","Error","Hay campos vacíos",Material.color(Material.Red));
+                    popupadd.openModal("error","Error","Hay campos vacíos",Material.color(Material.Red));
 
                 }
                 else
                 {
                     userManager.addUser(usernameField.text, passwordField.text,directoryRoute.text);
-                    popupadd.openModal("\uf00c","Éxito","Se ha creado un usuario de manera exitosa",Material.color(Material.Green));
+                    popupadd.openModal("success","Éxito","Se ha creado un usuario de manera exitosa",Material.color(Material.Green));
                     userManager.reset();
                     usernameField.text = "";
                     passwordField.text = "";
@@ -204,6 +204,10 @@ Rectangle
     FileBrowser
     {
         id: fileBrowser
+        function done()
+        {
+            directoryRoute.text = fileDialog.fileUrls[0].substr(7);
+        }
     }
 
     UserManager

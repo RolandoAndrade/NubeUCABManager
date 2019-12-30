@@ -123,10 +123,9 @@ Drawer
 
         function done()
         {
-            loadingIndicator.message = "Descargando archivo...";
             drawer.rename = false;
             drawer.close();
-            fileManager.downLoadFile(drawer.fileName,fileSelector.fileUrls[0].substr(7));
+            fileManager.downloadFile(drawer.fileName,fileSelector.fileUrls[0].substr(7));
         }
     }
 

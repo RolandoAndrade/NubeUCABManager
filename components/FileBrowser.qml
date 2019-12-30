@@ -9,9 +9,14 @@ FileDialog {
     sidebarVisible: false
     selectFolder: true
 
+    function done()
+    {
+
+    }
+
     onAccepted:
     {
-        directoryRoute.text = fileDialog.fileUrls[0].substr(7);
+        done();
     }
     onRejected:
     {

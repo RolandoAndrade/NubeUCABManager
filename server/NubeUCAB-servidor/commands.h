@@ -42,5 +42,6 @@ vector<string> tokenize(string s, string sep);
 string replaceAllOccurences(string s, string search, string replace);
 int parseCommand(string command,string& cmd,vector<string>& flags, vector<string>& args);
 int parseCommand(string command,string& cmd, string& args);
+void copyFile(string src, string dest);
 
 #endif

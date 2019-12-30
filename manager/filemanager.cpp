@@ -140,14 +140,9 @@ QString FileManager::getActualDir()
     return QString(execute("pwd","", code).c_str());
 }
 
-void FileManager::upLoadFile(QString fileName)
+void FileManager::copyFile(QString src, QString dest)
 {
-
-}
-
-void FileManager::downLoadFile(QString fileName, QString path)
-{
-
+    ::copyFile(src.toStdString(),dest.toStdString());
 }
 
 void FileManager::deleteFile(QString fileName)
@@ -163,7 +158,8 @@ void FileManager::createFolder(QString folderName)
 
 void FileManager::moveFile(QString file, QString route)
 {
-
+    int code;
+    cout<<execute("rename",file.toStdString(),code,route.toStdString())<<endl;
 }
 
 

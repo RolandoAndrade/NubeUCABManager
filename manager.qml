@@ -82,27 +82,24 @@ ApplicationWindow
         y: mainWindow.height/2 - height/2
     }
 
-   UIObjects.FileBrowser
-   {
-       id: fileBrowser
-       function done()
-       {
-           try
-           {
-               var a = fileBrowser.fileUrls[0].substr(7);
-               loadingIndicator.message = "Subiendo archivo...";
-               fileManager.upLoadFile(a);
-           }
-           catch(e)
-           {
-                popup.message = "No se ha seleccionado ningún archivo";
-                popup.open();
-           }
-
-
-
-       }
-   }
+    UIObjects.FileBrowser
+    {
+        id: fileBrowser
+        selectFolder: false
+        function done()
+        {
+            try
+            {
+                var a = fileBrowser.fileUrls[0].substr(7);
+                fileManager.uploadFile(a);
+            }
+            catch(e)
+            {
+                console.log(e.message)
+                popup.openModal("error","Error","No se ha seleccionado ningún archivo",Material.color(Material.Red));
+            }
+        }
+    }
 
     UIObjects.RadiusButton
     {
@@ -214,8 +211,7 @@ ApplicationWindow
                     }
                     else
                     {
-                        popup.message = "No se pudo crear el directorio";
-                        popup.open();
+                        popup.openModal("error","Error","No se pudo crear el directorio",Material.color(Material.Red));
                     }
                 }
 
@@ -304,7 +300,6 @@ ApplicationWindow
             originalRoute = primaryRoute;
             a = a.substr(a.lastIndexOf("/")+1,a.lastIndexOf("\"")-a.lastIndexOf("/")-1);
             headerLabels.model.append({patha: a, cd: primaryRoute});
-            console.log(originalRoute)
         }
 
         function retrieveFiles()
@@ -319,7 +314,6 @@ ApplicationWindow
 
         function cdRoute(route)
         {
-            console.log(route)
             fileManager.enterToFolder(route);
             primaryRoute = route;
             backButton.route = route.substr(0,route.lastIndexOf("/"));
@@ -329,7 +323,6 @@ ApplicationWindow
 
         function cdFolder(folder)
         {
-            console.log(folder)
             fileManager.enterToFolder(folder);
             backButton.route = primaryRoute;
             backButton.visible = true;
@@ -353,24 +346,37 @@ ApplicationWindow
 
         function moveIntoFolder(file, route)
         {
-            /*route = route+"/"+file;
+            route = route+"/"+file;
             fileManager.moveFile(file, route);
-            fileManager.retrieveFiles();*/
+            fileManager.retrieveFiles();
         }
 
         function moveIntoRoute(original, file)
         {
-            /*var route = primaryRoute+"/"+file;
+            var route = primaryRoute+"/"+file;
             original = original + "/"+file;
             fileManager.moveFile(original, route);
-            fileManager.retrieveFiles();*/
+            fileManager.retrieveFiles();
         }
 
         function rename(originalName, newName)
         {
-            /*fileManager.moveFile(originalName, newName);
+            fileManager.moveFile(originalName, newName);
             fileManager.retrieveFiles();
-            pasteManager.clear();*/
+            pasteManager.clear();
+        }
+
+        function uploadFile(file)
+        {
+            var fn = file.substr(file.lastIndexOf("/")+1);
+            fileManager.copyFile(file,fileManager.primaryRoute+"/"+fn);
+            retrieveFiles();
+        }
+
+        function downloadFile(file, route)
+        {
+            fileManager.copyFile(file,route+"/"+file);
+            retrieveFiles();
         }
 
     }

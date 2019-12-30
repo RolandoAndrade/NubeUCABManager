@@ -119,7 +119,6 @@ void pwd(stringstream &data, int &code)
 
 void cd(stringstream &data, int &code, string directory)
 {
-    cout<<directory<<endl;
     if(chdir(directory.c_str()) == 0)
     {
         code = 1;
@@ -296,4 +295,20 @@ int parseCommand(string command,string& cmd, string& args)
         args = command.substr(beginPos,endPos-beginPos);
     }
     return 1;
+}
+
+void copyFile(string src, string dest)
+{
+    if(src!=dest)
+    {
+        ifstream in(src.c_str(), ios::binary);
+        if(in)
+        {
+            ofstream out(dest.c_str(), ios::binary);
+            if(out)
+            {
+                out << in.rdbuf();
+            }
+        }
+    }
 }

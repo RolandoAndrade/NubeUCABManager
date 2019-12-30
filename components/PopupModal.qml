@@ -15,7 +15,7 @@ Popup
     x: mainWindow.width/2 - 150
     y: mainWindow.height/2 - 150
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
-    property string icon: "\uf00c"
+    property string type
     property string title: "Éxito"
     property string message: "Se ha creado un usuario de manera exitosa"
     property color colorIcon: Material.color(Material.Green)
@@ -28,7 +28,12 @@ Popup
 
         Text
         {
-            text: popupadd.icon
+            text: {
+                if(type=="success")
+                    return "\uf00c";
+                if(type=="error")
+                    return "\uf00d";
+            }
             color: popupadd.colorIcon
             Layout.alignment: Qt.AlignHCenter
             opacity: 0.8
@@ -69,9 +74,9 @@ Popup
         }
     }
 
-    function openModal(icon, title, message, color)
+    function openModal(type, title, message, color)
     {
-        popupadd.icon = icon;
+        popupadd.type = type;
         popupadd.title = title;
         popupadd.message = message;
         popupadd.colorIcon = color;
