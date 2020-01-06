@@ -4,6 +4,12 @@ NubeUCAB Manager es una aplicación de escritorio que permite levantar y apagar 
 
 El servidor FTP sin interfaz gráfica se puede encontrar en [NubeUCAB-servidor](https://github.com/RolandoAndrade/NubeUCAB-servidor)
 
+El cliente puede ser tanto:
+
+- [NubeUCAB](https://github.com/RolandoAndrade/NubeUCAB)
+
+- [NubeUCAB-cliente](https://github.com/RolandoAndrade/NubeUCAB-cliente)
+
 ## Capturas de pantalla
 
 ![Captura 1](./screens/img1.png)
